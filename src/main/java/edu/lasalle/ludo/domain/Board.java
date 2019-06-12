@@ -10,4 +10,11 @@ public class Board {
     public int getPlaces() {
         return places;
     }
+
+    @Override
+    public String toString() {
+        return "Board{" +
+                "places=" + places +
+                '}';
+    }
 }

@@ -22,7 +22,12 @@ public class Match {
         return board;
     }
 
-    public boolean isOver() {
-        return this.players.stream().anyMatch(p -> p.getPlace() >= this.board.getPlaces());
+
+    @Override
+    public String toString() {
+        return "Match{" +
+                "players=" + players +
+                ", board=" + board +
+                '}';
     }
 }
