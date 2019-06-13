@@ -32,17 +32,23 @@ public class MatchExecutor {
 
     public void start(){
 
-        LOGGER.info(String.format("Iniciando a partida, Partida: %s", match));
+        LOGGER.info(() -> String.format("Iniciando a partida, Partida: %s", match));
 
         do {
             nextRound();
-        } while (this.isOver());
+        } while (!this.isOver());
 
-        LOGGER.info(() -> String.format("Temos um vencedor, Jogador: %s", this.getWinner()));
+        LOGGER.info(() -> String.format("Temos um vencedor, Jogador: %s", this.getWinner().get().getName()));
     }
 
     private void nextRound() {
+        LOGGER.info(() -> String.format("Iniciando próxima rodada!, Jogadores: %s", this.getMatch().getPlayers()));
+
+        LOGGER.info("");
+
         this.match.getPlayers().forEach(p -> {
+            LOGGER.info("");
+
             LOGGER.info(String.format("Jogue o dado, Jogador: %s", p));
 
             scanner.nextLine();

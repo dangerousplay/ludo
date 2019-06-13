@@ -2,13 +2,15 @@ package edu.lasalle.ludo.domain;
 
 public class Player {
     private int place;
+    private final String name;
 
-    public Player() {
-
+    public Player(final String name) {
+        this.name = name;
     }
 
-    public Player(int place) {
+    public Player(int place, final String name) {
         this.place = place;
+        this.name = name;
     }
 
     public int getPlace() {
@@ -19,6 +21,10 @@ public class Player {
         this.place = place;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int incrementPlaces(int place) {
         return this.place += place;
     }
@@ -27,6 +33,7 @@ public class Player {
     public String toString() {
         return "Player{" +
                 "place=" + place +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

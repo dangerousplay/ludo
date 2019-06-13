@@ -15,7 +15,7 @@ public class Dice {
     }
 
     public int rollOut() {
-        return ThreadLocalRandom.current().nextInt(score + 1);
+        return Math.max(ThreadLocalRandom.current().nextInt(score + 1), 1);
     }
 
     @Override
