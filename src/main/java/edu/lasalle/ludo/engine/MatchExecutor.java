@@ -32,30 +32,30 @@ public class MatchExecutor {
 
     public void start(){
 
-        LOGGER.info(() -> String.format("Iniciando a partida, Partida: %s", match));
+        System.out.println( String.format("Iniciando a partida, Partida: %s", match));
 
         do {
             nextRound();
         } while (!this.isOver());
 
-        LOGGER.info(() -> String.format("Temos um vencedor, Jogador: %s", this.getWinner().get().getName()));
+        System.out.println(String.format("Temos um vencedor, Jogador: %s", this.getWinner().get().getName()));
     }
 
     private void nextRound() {
-        LOGGER.info(() -> String.format("Iniciando próxima rodada!, Jogadores: %s", this.getMatch().getPlayers()));
+        System.out.println( String.format("Iniciando próxima rodada!, Jogadores: %s", this.getMatch().getPlayers()));
 
-        LOGGER.info("");
+        System.out.println("");
 
         this.match.getPlayers().forEach(p -> {
-            LOGGER.info("");
+            System.out.println("");
 
-            LOGGER.info(String.format("Jogue o dado, Jogador: %s", p));
+            System.out.println(String.format("Jogue o dado, Jogador: %s", p));
 
             scanner.nextLine();
 
-            final var nextPlace = DEFAULT_DICE.rollOut();
+            final int nextPlace = DEFAULT_DICE.rollOut();
 
-            LOGGER.info(String.format("Dado jogado: %d", nextPlace));
+            System.out.println(String.format("Dado jogado: %d", nextPlace));
 
             p.incrementPlaces(nextPlace);
         });
